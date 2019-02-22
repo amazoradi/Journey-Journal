@@ -21,16 +21,26 @@
 
     {% block content %}
     {% if user.is_authenticated %}
-    <h1>Welcome To Journey Journal {{ user.username}}!</h1>
-    <p>Explore.</p>
-    <p>Record.</p>
-    <p> Repeat.</p>
+    <h1 class='title'>Welcome To Journey Journal {{ user.username}}!</h1>
+    <div class='moto'>
+        <p>Explore.</p>
+        <p>Record.</p>
+        <p>Repeat.</p>
+    </div>
     {% else %}
-    <h1>Welcome To Journey Journal</h1>
-    <h1>Let's Get Started</h1>
-
-    <button class="btn btn-primary"><a href="{% url 'Journal:register' %}">Register</a></button>
-    <button class="btn btn-secondary"><a href="{% url 'Journal:login' %}">Login</a></button>
+    <h1 class="title">Welcome To Journey Journal</h1>
+    <h2>Let's Get Started</h2>
+    <div class='not_loged'>
+        <div class='moto'>
+            <p>Explore.</p>
+            <p>Record.</p>
+            <p>Repeat.</p>
+        </div>
+        <div class="list_buttons">
+            <button class="btn btn-primary"><a href="{% url 'Journal:login' %}">Login</a></button>
+            <button class="btn btn-secondary"><a href="{% url 'Journal:register' %}">Register</a></button>
+        </div>
+    </div>
 
     {% endif %}
 
