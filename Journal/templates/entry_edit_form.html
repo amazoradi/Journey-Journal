@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h2>Record a New Entry</h2>
+<form classs="entry_form" method="POST" action="{% url 'Journal:entry_update' user.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{edit_form|crispy}}
+    <input type="hidden" value="{{entry.id}}" name="entry_id">
+
+    <input type='submit' value="Submit" />
+</form>
+{% endblock content %}

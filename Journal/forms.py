@@ -13,6 +13,9 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password', 'first_name', 'last_name',)
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 
 class EntryForm(forms.ModelForm):
     '''Form class to create a new entry
@@ -22,6 +25,9 @@ class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
         fields = ('title', 'location', 'content', 'date', 'image')
+        widgets = {
+            'date': DateInput(),
+        }
 
 
 
