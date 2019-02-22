@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h3>Are you sure you want to delete entry, {{entry.title}}</h3>
+<div class="list_buttons"> 
+
+    <button class="btn btn-primary"><a href="{% url 'Journal:entry_list' user.id %}">Cancel</a></button>
+    <form class="extra-marg" action="{% url 'Journal:entry_delete' entry.customer_id entry.id %}" method="POST">
+        
+        {% csrf_token %}
+        
+        <input type="hidden" value="{{entry.id}}" name="entry_id">
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+</div>
+
+{% endblock %}

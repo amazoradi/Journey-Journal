@@ -45,3 +45,15 @@ def entry_update(request, entry_id):
     entry_details.save()
     return HttpResponseRedirect(reverse('Journal:entry_list', args=(request.user.id,)))
 
+def delete_confirm(request, pk, entry_id):
+    entry_to_delete = Entry.objects.get(pk=entry_id)
+    context ={"entry": entry_to_delete}
+    return render(request, 'confirm_entrty_delete.html', context)
+
+def entry_delete(request, pk, entry_id):
+    deleted_entry = Entry.objects.get(pk=request.POST['entry_id'])
+    deleted_entry.delete()
+    return HttpResponseRedirect(reverse('Journal:entry_list', args=(request.user.id,)))
+
+
+

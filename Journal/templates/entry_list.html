@@ -4,20 +4,23 @@
 {% block content %}
 
 {% if entry_list %}
-
+<h2>{{user.username}}'s Journey Journal </h2>
 {% for entry in entry_list %}
 <div class='entry_div'>
-    <h4>{{entry.title}}</h4>
-    <h6>{{entry.location}}, {{entry.date}}</h6>
+    <div class="entry_heading">
+        <h4>{{entry.title}}</h4>
+        <h6>{{entry.location}} | {{entry.date}}</h6>
+    </div>
     <div class='entry_content'>
         <p>{{entry.content}}</p>
         <div>
-            <img src={{entry.image}} alt={{entry.title}}>   
+            <img src={{entry.image}} alt={{entry.title}}>
         </div>
     </div>
     <div class="list_buttons">
         <button class="btn btn-primary"><a href="{% url 'Journal:entry_edit' entry.id %}">Edit</a></button>
-        <button class="btn btn-danger"><a href="#">Delete</a></button>
+        <button class="btn btn-danger"><a
+                href="{% url 'Journal:delete_confirm' entry.customer_id entry.id %}">Delete</a></button>
     </div>
 </div>
 {% endfor %}
