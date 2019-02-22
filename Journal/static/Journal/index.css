@@ -25,3 +25,14 @@ button a:hover {
     color: white;
     text-decoration: none;
 }
+.entry_form {
+    margin: 0px 0px 0px 25px;
+}
+.list_buttons{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.list_buttons button {
+    margin: 5px 10px;
+}

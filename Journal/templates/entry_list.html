@@ -15,8 +15,8 @@
             <img src={{entry.image}} alt={{entry.title}}>   
         </div>
     </div>
-    <div>
-        <button class="btn btn-primary"><a href="{% url 'Journal:entry_edit' entry.id %}">Edit {{entry.id}}</a></button>
+    <div class="list_buttons">
+        <button class="btn btn-primary"><a href="{% url 'Journal:entry_edit' entry.id %}">Edit</a></button>
         <button class="btn btn-danger"><a href="#">Delete</a></button>
     </div>
 </div>
