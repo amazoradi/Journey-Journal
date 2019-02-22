@@ -1,0 +1,27 @@
+.entry_div{
+    margin: 20px;
+    border: 1px solid black;
+}
+
+.entry_div img {
+    width:400px;
+    padding: 10px;
+}
+.entry_div p {
+    width:400px;
+}
+
+.entry_content{
+    display: flex;
+    justify-content: space-around;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+button a:hover {
+    color: white;
+    text-decoration: none;
+}
