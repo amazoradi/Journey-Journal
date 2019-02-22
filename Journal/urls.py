@@ -13,4 +13,6 @@ urlpatterns = [
     path('Journal/entry_list/<int:pk>', views.entry_list, name='entry_list'),
     path('Journal/entry_list/edit_entry/<int:entry_id>', views.entry_edit, name='entry_edit'),
     path('Journal/entry_list/edit_entry/<int:entry_id>/update', views.entry_update, name='entry_update'),
+    path('Journal/entry_list/<int:pk>/delete/<int:entry_id>', views.entry_delete, name='entry_delete'),
+    path('Journal/entry_list/<int:pk>/delete/<int:entry_id>/confirm', views.delete_confirm, name='delete_confirm'),
 ]
