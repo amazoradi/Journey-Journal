@@ -4,7 +4,7 @@
 {% block content %}
 
 <h2>Record a New Entry</h2>
-<form  method="post" action="#" enctype="multipart/form-data">
+<form  method="post" action="{% url 'Journal:entry' user.id %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{entry_form.as_p }}
 

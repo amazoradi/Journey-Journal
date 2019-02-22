@@ -21,7 +21,7 @@ class EntryForm(forms.ModelForm):
     '''
     class Meta:
         model = Entry
-        fields = ('title', 'location', 'content', 'date', 'image',)
+        fields = ('title', 'location', 'content', 'date', 'image')
 
 
 
