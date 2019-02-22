@@ -23,34 +23,22 @@ def register(request):
     # Create a new user as well as a new customer at the same time
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
-        customer_form = CustomerForm(data=request.POST)
-        confirm_password = request.POST['confirm_password']
-        newPassword = request.POST.get('password')
-        if user_form.is_valid() and customer_form.is_valid():
-            if newPassword == confirm_password:
-                user = user_form.save()
-                customer = customer_form.save()
-                customer.user = user
-                user.set_password(user.password)
-                user.save()
-                customer.save()
-                return login_user(request)
-            else:
-
-                # print("user form", newPassword)
-                # print("confirm", confirm_password)
-                print("passwords don't match")
-                template_name = 'error.html'
-                return render(request, template_name)
+        # confirm_password = request.POST['confirm_password']
+        if user_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            return login_user(request)
+    
         else:
             print("not valid user form")
 
 
     elif request.method == 'GET':
         user_form = UserForm()
-        customer_form = CustomerForm()
+        context = {'user_form': user_form}
         template_name = 'register.html'
-        return render(request, template_name, {'user_form': user_form, 'customer_form': customer_form})
+        return render(request, template_name, context)
 
 
 def login_user(request):
@@ -74,7 +62,7 @@ def login_user(request):
         # If authentication was successful, log the user in
         if authenticated_user is not None:
             login(request=request, user=authenticated_user)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('Journal')
 
         else:
             # Bad login details were provided. So we can't log the user in.
@@ -92,4 +80,4 @@ def user_logout(request):
 
     # Take the user back to the homepage. Is there a way to not hard code
     # in the URL in redirects?????
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('Journal')
