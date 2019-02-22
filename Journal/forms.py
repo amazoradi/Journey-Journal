@@ -12,3 +12,16 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password', 'first_name', 'last_name',)
+
+
+class EntryForm(forms.ModelForm):
+    '''Form class to create a new entry
+    
+    Author: Austin
+    '''
+    class Meta:
+        model = Entry
+        fields = ('title', 'location', 'content', 'date', 'image',)
+
+
+
