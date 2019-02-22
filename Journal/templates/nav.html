@@ -10,10 +10,10 @@
             <a class="navbar-brand" href="{% url 'Journal:landing_page' %}">Journey Journal</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Write</a>
+            <a class="nav-link" href="{% url 'Journal:entry' user.id %}">Write</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">View</a>
+            <a class="nav-link" href="{% url 'Journal:entry_list' user.id %}">View</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{% url 'Journal:logout' %}">Logout</a>

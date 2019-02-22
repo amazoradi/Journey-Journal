@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+{% if entry_list %}
+
+{% for entry in entry_list %}
+<p>{{entry.title}}</p>
+
+{% endfor %}
+
+{% else %}
+<p> NO ENTRIES YET </p>
+
+{% endif %}
+
+{% endblock %}
