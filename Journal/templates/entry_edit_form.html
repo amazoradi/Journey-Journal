@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h2>Record a New Entry</h2>
+<form method="POST" action="{% url 'Journal:entry_update' user.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{edit_form.as_p}}
+    <input type="hidden" value="{{entry.id}}" name="entry_id">
+
+    <input type='submit' value="Submit" />
+</form>
+{% endblock content %}

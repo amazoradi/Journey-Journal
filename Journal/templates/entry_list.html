@@ -16,7 +16,7 @@
         </div>
     </div>
     <div>
-        <button class="btn btn-primary"><a href="#">Edit</a></button>
+        <button class="btn btn-primary"><a href="{% url 'Journal:entry_edit' entry.id %}">Edit {{entry.id}}</a></button>
         <button class="btn btn-danger"><a href="#">Delete</a></button>
     </div>
 </div>
