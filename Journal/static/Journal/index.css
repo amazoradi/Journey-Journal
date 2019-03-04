@@ -61,7 +61,6 @@ button a:hover {
 .not_loged{
     display: flex;
     align-items: center;
-    /* justify-content: center; */
 }
 
 .not_loged div{
